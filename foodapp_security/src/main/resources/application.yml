@@ -1,0 +1,30 @@
+spring:
+  jackson:
+    serialization:
+      fail-on-empty-beans: false  
+  datasource:
+    url: jdbc:mysql://localhost:3306/foodappjpa
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect:  org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+    
+    hibernate:
+      naming:
+        physical-strategy: com.learning.food_app.utils.CustomNamingStrategy
+      ddl-auto: update
+server:
+  port: 9009
+
+zee5_app:
+  app:
+    jwtSecret: secretkey
+    jwtExpirationMs: 86400000
+
+
+    
+    

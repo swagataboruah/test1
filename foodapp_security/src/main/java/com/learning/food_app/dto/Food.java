@@ -1,4 +1,4 @@
-package com.learning.dto;
+package com.learning.food_app.dto;
 import java.util.HashSet;
 
 import java.util.Set;
@@ -47,23 +47,27 @@ public class Food implements Comparable<Food>
 	private String foodpic;
 	
 	private String description;
-	
-	@Enumerated(EnumType.STRING)
-	@Column(length = 30)
-	private ECUISINE foodtype;
 
+	private String foodtype;
+	//private Set<String> foodtypes;
+		
 	@Override
 	public int compareTo(Food o) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 	
-	@ManyToMany
-	@JoinTable(name = "food_foodtypes", joinColumns = @JoinColumn(name = "foodId"), 
-			inverseJoinColumns = @JoinColumn(name = "foodTypeId"))
-	private Set<FoodType> foodTypes = new HashSet<>();
+//	@ManyToMany
+//	@JoinTable(name = "food_foodtypes", joinColumns = @JoinColumn(name = "foodid"), 
+//			inverseJoinColumns = @JoinColumn(name = "foodtypeid"))
+//	private Set<FoodType> foodtype = new HashSet<>();
+//
 
-
+	public Food(int cost, String foodpic, String description) {
+		this.cost = cost;
+		this.foodpic = foodpic;
+		this.description = description;
+	}
 
 }
 

@@ -85,6 +85,18 @@ public class UserController {
 		return ResponseEntity.status(201).body(result);	
 	}
 	
+//deletebyid
+		@DeleteMapping("/delete/{id}")
+		public ResponseEntity<?> deleteUserById(@PathVariable("id") int id) throws IdNotFoundException, SQLException
+		{
+			String result = userService.deleteUserById(id);
+			Map<String, String> map = new HashMap<>();
+			map.put("message", "User deleted successfully");
+			return ResponseEntity.status(201).body(result);
+			
+		}
+		
+	
 //authentication	
 	@PostMapping("/authenticate")
 	public ResponseEntity<?> authenticate(@RequestBody Login login){
@@ -99,16 +111,6 @@ public class UserController {
 	
 	}	
 	
-//deletebyid
-	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> deleteUserById(@PathVariable("id") int id) throws IdNotFoundException, SQLException
-	{
-		String result = userService.deleteUserById(id);
-		Map<String, String> map = new HashMap<>();
-		map.put("message", "User deleted successfully");
-		return ResponseEntity.status(201).body(result);
-		
-	}
 	
 
 	
